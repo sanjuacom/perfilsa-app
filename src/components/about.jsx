@@ -13,7 +13,7 @@ class About extends Component {
 
   componentDidMount() {
     var self = this;
-    this.serverRequest = axios.get('http://druact-api.goran.cloud/node/1?_format=json')
+    this.serverRequest = axios.get('http://perfilsa.dev.dd:8083/node/1?_format=json')
     .then(function(result){
       self.setState({
         article_title: result.data.title["0"].value,

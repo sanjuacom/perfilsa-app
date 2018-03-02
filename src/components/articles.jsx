@@ -30,19 +30,19 @@ class Articles extends Component {
     this.fetchArticle(event.target.getAttribute('data-value'));
   }
 
-  fetchArticle(nid) {
+  fetchArticle(id) {
     var id;
-    if (nid !== undefined) {
-      id = nid;
+    if (id !== undefined) {
+      id = id;
     }
     else if (this.props.match.params.id !== undefined) {
       id = this.props.match.params.id;
     }
     else {
-      id = 6;
+      id = 1;
     }
     var self = this;
-    this.serverRequest = axios.get('http://druact-api.goran.cloud/node/' + id + '?_format=json')
+    this.serverRequest = axios.get('http://perfilsa.dev.dd:8083/node/' + id + '?_format=json')
     .then(function(result){
       var body = result.data.body["0"].value;
       self.setState({
@@ -54,7 +54,7 @@ class Articles extends Component {
 
   fetchArticleTitles() {
     var self = this;
-    this.serverRequest = axios.get('http://druact-api.goran.cloud/api/v1/articles/list')
+    this.serverRequest = axios.get('http://perfilsa.dev.dd:8083/api/tools')
     .then(function(result){
       self.setState({
         articles: result.data
@@ -73,8 +73,8 @@ class Articles extends Component {
     var self = this;
     this.state.articles.forEach(function(article, index) {
       if (article.title.toLowerCase().indexOf(self.state.keyword.toLowerCase()) !== -1) {
-        var path = '/articles/' + article.nid;
-        rows.push(<NavLink key={article.nid} data-value={article.nid} onClick={self.updateSelectedArticle} to={path} className="list-group-item list-group-item-action">{article.title}</NavLink>);
+        var path = '/articles/' + article.id;
+        rows.push(<NavLink key={article.id} data-value={article.id} onClick={self.updateSelectedArticle} to={path} className="list-group-item list-group-item-action">{article.title}</NavLink>);
       }
     });
 
