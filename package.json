@@ -21,5 +21,17 @@
     "eject": "react-scripts eject",
     "build-css": "node-sass src/ -o src/",
     "watch-css": "npm run build-css && node-sass src/ -o src/ --watch --recursive"
-  }
+  },
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gnikolovski/druact.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gnikolovski/druact/issues"
+  },
+  "homepage": "https://github.com/gnikolovski/druact#readme",
+  "description": ""
 }
