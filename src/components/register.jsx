@@ -46,7 +46,7 @@ class Register extends Component {
       return;
     }
 
-    axios.post('http://druact-api.goran.cloud/user/register?_format=json', {
+    axios.post('http://perfilsa.dev.dd:8083/user/register?_format=json', {
       name: [{"value": this.state.name}],
       mail: [{"value": this.state.email}],
       pass: [{"value": this.state.password}]

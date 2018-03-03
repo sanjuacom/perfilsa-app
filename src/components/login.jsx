@@ -38,7 +38,7 @@ class Login extends Component {
 
     var self = this;
 
-    axios.post('http://druact-api.goran.cloud/user/login?_format=json', {
+    axios.post('http://perfilsa.dev.dd:8083/user/login?_format=json', {
       name: this.state.name,
       pass: this.state.password
     })

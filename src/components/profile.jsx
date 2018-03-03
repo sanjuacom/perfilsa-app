@@ -16,7 +16,7 @@ class Profile extends Component {
     var uid = localStorage.getItem('uid');
     var auth = localStorage.getItem('auth');
     var self = this;
-    this.serverRequest = axios.get('http://druact-api.goran.cloud/user/' + uid + '?_format=json', {
+    this.serverRequest = axios.get('http://perfilsa.dev.dd:8083/user/' + uid + '?_format=json', {
       headers: {"Authorization":"Basic " + auth}
     })
     .then(function(result){
