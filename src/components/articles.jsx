@@ -54,7 +54,7 @@ class Articles extends Component {
 
   fetchArticleTitles() {
     var self = this;
-    this.serverRequest = axios.get('http://perfilsa.dev.dd:8083/api/tools')
+    this.serverRequest = axios.get('http://perfilsa.dev.dd:8083/api/v1/tools')
     .then(function(result){
       self.setState({
         articles: result.data
