@@ -77,6 +77,11 @@ class Navbar extends Component {
                     <i className="fa fa-envelope"></i> Contact
                   </NavLink>
                 </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" activeClassName="active" to="/add-tool">
+                    <i className="fa fa-envelope"></i> Add Tool
+                  </NavLink>
+                </li>
                 <li className="nav-item dropdown">
                   <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown">
                     <i className="fa fa-user"></i> {userLinkTitle}

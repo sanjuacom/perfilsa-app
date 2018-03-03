@@ -14,6 +14,7 @@ import Home from './components/home.jsx';
 import Articles from './components/articles.jsx';
 import About from './components/about.jsx';
 import Contact from './components/contact.jsx';
+import AddTool from './components/add_tool.jsx';
 import Register from './components/register.jsx';
 import Login from './components/login.jsx';
 import Profile from './components/profile.jsx';
@@ -30,6 +31,7 @@ class App extends Component {
             <Route path="/articles/:id?" component={Articles} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
+            <Route path="/add-tool" component={AddTool} />
             <Route path="/user/register" component={Register} />
             <Route path="/user/login" component={Login} />
             <Route path="/user/profile" component={Profile} />

@@ -44,6 +44,7 @@ class Articles extends Component {
     var self = this;
     this.serverRequest = axios.get('http://perfilsa.dev.dd:8083/node/' + id + '?_format=json')
     .then(function(result){
+      console.log(result.data.body);
       var body = result.data.body["0"].value;
       self.setState({
         article_title: result.data.title["0"].value,
