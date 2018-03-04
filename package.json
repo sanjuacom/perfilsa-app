@@ -12,6 +12,7 @@
     "babel-preset-node5": "^12.0.1",
     "babel-preset-node6": "^11.0.0",
     "babel-preset-react": "^6.24.1",
+    "electron": "^1.8.2",
     "node-sass": "^4.5.2",
     "npm-run-all": "^4.0.2",
     "react-scripts": "0.9.5"
@@ -22,10 +23,11 @@
     "build": "npm run build-css && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
+    "electron": "electron .",
     "build-css": "node-sass src/ -o src/",
     "watch-css": "npm run build-css && node-sass src/ -o src/ --watch --recursive"
   },
-  "main": "src/index.js",
+  "main": "electron-starter.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gnikolovski/druact.git"
