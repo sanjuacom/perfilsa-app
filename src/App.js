@@ -11,7 +11,7 @@ import Slider from './components/slider.jsx';
 import Footer from './components/footer.jsx';
 
 import Home from './components/home.jsx';
-import Articles from './components/articles.jsx';
+import Tools from './components/tools.jsx';
 import About from './components/about.jsx';
 import Contact from './components/contact.jsx';
 import AddTool from './components/add_tool.jsx';
@@ -28,7 +28,7 @@ class App extends Component {
           <Navbar />
           <Slider />
             <Route exact path="/" component={Home} />
-            <Route path="/articles/:id?" component={Articles} />
+            <Route path="/tools/:id?" component={Tools} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/add-tool" component={AddTool} />

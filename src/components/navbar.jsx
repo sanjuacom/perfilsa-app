@@ -50,7 +50,7 @@ class Navbar extends Component {
 
     return (
       <div className="row top-buffer">
-        <div id="logo"><img src="/assets/img/logo_app.jpg"/></div>
+        <div id="logo"><img src="/assets/img/logo_app.jpg" alt="Perfil SRL."/></div>
         <div className="col">
           <nav className="navbar navbar-toggleable-md navbar-inverse bg-primary-blue">
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01">
@@ -64,8 +64,8 @@ class Navbar extends Component {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink exact className="nav-link" activeClassName="active" to="/articles">
-                    <i className="fa fa-newspaper-o"></i> Articles
+                  <NavLink exact className="nav-link" activeClassName="active" to="/tools">
+                    <i className="fa fa-newspaper-o"></i> Herramientas
                   </NavLink>
                 </li>
                 <li className="nav-item">

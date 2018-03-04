@@ -5,19 +5,19 @@ import {
   NavLink
 } from 'react-router-dom';
 
-class Articles extends Component {
+class Tools extends Component {
 
   constructor() {
     super();
     this.state = {
-      articles: [],
-      article_title: '',
-      article_body: '',
+      tools: [],
+      tool_title: '',
+      tool_body: '',
       keyword: ''
     };
 
     this.updateSearchKeyword = this.updateSearchKeyword.bind(this);
-    this.updateSelectedArticle = this.updateSelectedArticle.bind(this);
+    this.updateSelectedTool = this.updateSelectedTool.bind(this);
   }
 
   updateSearchKeyword(event) {
@@ -26,56 +26,52 @@ class Articles extends Component {
     })
   }
 
-  updateSelectedArticle(event) {
-    this.fetchArticle(event.target.getAttribute('data-value'));
+  updateSelectedTool(event) {
+    this.fetchTool(event.target.getAttribute('data-value'));
   }
 
-  fetchArticle(id) {
-    var id;
-    if (id !== undefined) {
-      id = id;
+  fetchTool(id) {
+    if (id === undefined) {
+      id = 13;
     }
     else if (this.props.match.params.id !== undefined) {
       id = this.props.match.params.id;
     }
-    else {
-      id = 1;
-    }
+
     var self = this;
     this.serverRequest = axios.get('http://perfilsa.dev.dd:8083/node/' + id + '?_format=json')
     .then(function(result){
-      console.log(result.data.body);
       var body = result.data.body["0"].value;
       self.setState({
-        article_title: result.data.title["0"].value,
-        article_body: body.replace('/sites/default/files', 'http://druact-api.goran.cloud/sites/default/files')
+        tool_title: result.data.title["0"].value,
+        tool_body: body.replace('/sites/default/files', 'http://druact-api.goran.cloud/sites/default/files')
       });
     })
   }
 
-  fetchArticleTitles() {
+  fetchToolTitles() {
     var self = this;
     this.serverRequest = axios.get('http://perfilsa.dev.dd:8083/api/v1/tools')
     .then(function(result){
       self.setState({
-        articles: result.data
+        tools: result.data
       });
     })
   }
 
   componentDidMount () {
-    this.fetchArticleTitles();
-    this.fetchArticle();
+    this.fetchToolTitles();
+    this.fetchTool();
   }
 
   render(){
 
     var rows = [];
     var self = this;
-    this.state.articles.forEach(function(article, index) {
-      if (article.title.toLowerCase().indexOf(self.state.keyword.toLowerCase()) !== -1) {
-        var path = '/articles/' + article.id;
-        rows.push(<NavLink key={article.id} data-value={article.id} onClick={self.updateSelectedArticle} to={path} className="list-group-item list-group-item-action">{article.title}</NavLink>);
+    this.state.tools.forEach(function(tool, index) {
+      if (tool.title.toLowerCase().indexOf(self.state.keyword.toLowerCase()) !== -1) {
+        var path = '/tools/' + tool.id;
+        rows.push(<NavLink key={tool.id} data-value={tool.id} onClick={self.updateSelectedTool} to={path} className="list-group-item list-group-item-action">{tool.title}</NavLink>);
       }
     });
 
@@ -84,7 +80,7 @@ class Articles extends Component {
         <div className="col-md-4">
           <form>
             <div className="form-group">
-              <input name="keyword" value={this.state.keyword} onChange={this.updateSearchKeyword} type="text" className="form-control" placeholder="Search articles" />
+              <input name="keyword" value={this.state.keyword} onChange={this.updateSearchKeyword} type="text" className="form-control" placeholder="Search tool" />
             </div>
           </form>
           <div className="list-group">
@@ -94,11 +90,11 @@ class Articles extends Component {
         <div className="col-md-8">
           <div className="card text-center">
             <div className="card-header">
-              {this.state.article_title}
+              {this.state.tool_title}
             </div>
-            <div className="card-block" dangerouslySetInnerHTML={{__html: this.state.article_body}} />
+            <div className="card-block" dangerouslySetInnerHTML={{__html: this.state.tool_body}} />
             <div className="card-footer text-muted text-left">
-              <em><small>By Goran Nikolovski.</small></em>
+              <em><small>By Matias Torres.</small></em>
             </div>
           </div>
         </div>
@@ -107,4 +103,4 @@ class Articles extends Component {
   }
 }
 
-export default Articles
+export default Tools
