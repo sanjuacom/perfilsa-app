@@ -12,3 +12,14 @@
 
 .error {
   color: red; }
+
+.bg-primary-blue,
+.primary-color {
+  background-color: #12516B; }
+
+body {
+  background-color: #DDEAF2; }
+
+body .btn-primary {
+  background: #12516B;
+  border-color: #12516B; }

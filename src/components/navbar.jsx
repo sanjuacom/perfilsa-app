@@ -50,8 +50,9 @@ class Navbar extends Component {
 
     return (
       <div className="row top-buffer">
+        <div id="logo"><img src="/assets/img/logo_app.jpg"/></div>
         <div className="col">
-          <nav className="navbar navbar-toggleable-md navbar-inverse bg-success">
+          <nav className="navbar navbar-toggleable-md navbar-inverse bg-primary-blue">
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01">
               <span className="navbar-toggler-icon"></span>
             </button>
