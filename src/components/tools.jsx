@@ -80,7 +80,7 @@ class Tools extends Component {
         <div className="col-md-4">
           <form>
             <div className="form-group">
-              <input name="keyword" value={this.state.keyword} onChange={this.updateSearchKeyword} type="text" className="form-control" placeholder="Search tool" />
+              <input name="keyword" value={this.state.keyword} onChange={this.updateSearchKeyword} type="text" className="form-control" placeholder="Buscar herramienta/elemento" />
             </div>
           </form>
           <div className="list-group">
