@@ -11,11 +11,21 @@ class AddRemit extends Component {
           field_refer_receptor: '',
           success: '',
           error: '',
-          csrfToken: ''
+          csrfToken: '',
+          fieldsetReference: []
         };
     
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+
+        // Add button for new reference fieldset/
+        this.addFieldset = this.addFieldset.bind(this);
+    }
+
+    // Add element.
+    addFieldset() {
+        const fieldsetReference = this.state.fieldsetReference.concat(FieldsetReference);
+        this.setState({ fieldsetReference });
     }
 
     //When the NewFormNode mounts to the DOM, make a request for the CSRF Token and saves the token to the Form’s state
@@ -75,6 +85,11 @@ class AddRemit extends Component {
       }
 
     render(){
+        // Add variable for fieldset
+        const fieldsetReference = this.state.fieldsetReference.map((Element, index) => {
+            return <Element key={ index } index={ index } />
+        });
+
         return(
             <div className="row top-buffer">
                 <div className="col">
@@ -86,7 +101,8 @@ class AddRemit extends Component {
                             <input name="field_refer_receptor" value={this.state.field_refer_receptor} onChange={this.handleChange} required type="textfield" className="form-control" placeholder="Enter receptor" />
                         </div>
                         <div className="form-group">
-                            <FieldsetReference />
+                            <button onClick={ this.addFieldset }>Add Fieldset</button>
+                            { fieldsetReference }
                         </div>
                         
                         <button type="submit" className="btn btn-primary">Send message</button>

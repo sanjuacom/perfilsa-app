@@ -9,6 +9,7 @@ class Reference extends Component {
     response: ''
   }
   constructor(props) {
+    console.log(props);
     super(props);
 
     this.state = {
@@ -24,7 +25,6 @@ class Reference extends Component {
   }
 
   getOptions(search) {
-      console.log(search);
     return axios.get('http://perfilsa.dev.dd:8083/api/v1/remito?_format=json',{
         params: { search: search}
     }).then(response => {
@@ -43,11 +43,11 @@ class Reference extends Component {
 
     return (
       <Select.Async
-        name="form-field-reference"
+        name={`field-reference-${ this.props.qtyReference }`}
         value={value}
         onChange={this.handleChange}
         options={listOptions}
-        loadOptions = { this.getOptions.bind(this) }
+        loadOptions={ this.getOptions.bind(this) }
       />
     );
   }

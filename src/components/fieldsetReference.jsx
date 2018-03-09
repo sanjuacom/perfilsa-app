@@ -5,8 +5,8 @@ class FieldsetReference extends Component {
     render() {
         return(
             <div>
-                <Reference />
-                <input name="qty" type="textfield" />
+                <Reference qtyReference={this.props.index}/>
+                <input name={ `field-qty-${ this.props.index }` } type="textfield" />
             </div>
         );
     }
