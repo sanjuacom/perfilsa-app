@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Reference from './reference';
+import FieldsetReference from './fieldsetReference';
 
 class AddRemit extends Component {
 
@@ -86,7 +86,7 @@ class AddRemit extends Component {
                             <input name="field_refer_receptor" value={this.state.field_refer_receptor} onChange={this.handleChange} required type="textfield" className="form-control" placeholder="Enter receptor" />
                         </div>
                         <div className="form-group">
-                            <Reference />
+                            <FieldsetReference />
                         </div>
                         
                         <button type="submit" className="btn btn-primary">Send message</button>
