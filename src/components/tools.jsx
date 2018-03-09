@@ -56,7 +56,7 @@ class Tools extends Component {
       self.setState({
         tools: result.data
       });
-    })
+    });
   }
 
   componentDidMount () {

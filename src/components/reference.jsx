@@ -17,12 +17,19 @@ class Reference extends Component {
   }
 
   componentDidMount(search = '') {
-    axios.get('http://perfilsa.dev.dd:8083/api/v1/remito?_format=json',
-     {params: { search: search }}
-    ).then(res => {
+    axios.get('http://perfilsa.dev.dd:8083/api/v1/remito?_format=json').then(res => {
         const options = res.data;
         this.setState({ options });
       });
+  }
+
+  getOptions(search) {
+      console.log(search);
+    return axios.get('http://perfilsa.dev.dd:8083/api/v1/remito?_format=json',{
+        params: { search: search}
+    }).then(response => {
+        return { options: response.data }
+    })
   }
 
   handleChange = (selectedOption) => {
@@ -35,11 +42,12 @@ class Reference extends Component {
     const value = selectedOption && selectedOption.value;
 
     return (
-      <Select
+      <Select.Async
         name="form-field-reference"
         value={value}
         onChange={this.handleChange}
         options={listOptions}
+        loadOptions = { this.getOptions.bind(this) }
       />
     );
   }
