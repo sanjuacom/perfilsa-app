@@ -22,6 +22,8 @@ import Logout from './components/logout.jsx';
 import Tools from './components/Tools/tools.jsx';
 import ToolAdd from './components/Tools/tool_add.jsx';
 
+import Remits from './components/Remit/remits.jsx';
+
 class App extends Component {
   render() {
     return (
@@ -34,6 +36,7 @@ class App extends Component {
             <Route path="/contact" component={Contact} />
             <Route path="/tool/add" component={ToolAdd} />
             <Route path="/remit/add" component={RemitAdd} />
+            <Route path="/remits" component={Remits} />
             <Route path="/user/register" component={Register} />
             <Route path="/user/login" component={Login} />
             <Route path="/user/profile" component={Profile} />

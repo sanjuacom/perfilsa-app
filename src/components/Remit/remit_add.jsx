@@ -64,8 +64,11 @@ class RemitAdd extends Component {
     
         axios.post('http://perfilsa.dev.dd:8083/node?_format=json', {
           type: [{"target_id": "refer","target_type": "node_type"}],
-          field_refer_receptor: [{"target_id": this.state.field_refer_receptor, "target_type": "user", "url": "/user/" + this.state.field_refer_receptor}],
+          //field_refer_receptor: [{"target_id": this.state.field_refer_receptor, "target_type": "user", "url": "/user/" + this.state.field_refer_receptor}],
           title: [{"value": this.state.title}],
+          field_detail: [{"value": this.state.detail}],
+          field_transport: [{"value": this.state.transport}],
+          field_order_number: [{"value": this.state.order}],
         }, config)
         .then(function (response) {
           self.setState({
@@ -101,7 +104,7 @@ class RemitAdd extends Component {
                         </div>
                         <div className="form-group">
                             <label>Nro de Orden:</label>
-                            <input name="orden" value={this.state.orden} onChange={this.handleChange} required type="textfield" size="15" className="form-control" />
+                            <input name="order" value={this.state.orden} onChange={this.handleChange} required type="textfield" size="15" className="form-control" />
                         </div>
                         <div className="form-group">
                             <label>Fecha:</label>

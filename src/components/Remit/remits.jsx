@@ -18,7 +18,6 @@ class Remits extends Component {
             self.setState({
             remits: result.data
             });
-            console.log(result.data);
         });
     }
     componentDidMount () {

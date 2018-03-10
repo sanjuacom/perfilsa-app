@@ -69,6 +69,11 @@ class Navbar extends Component {
                   </NavLink>
                 </li>
                 <li className="nav-item">
+                  <NavLink className="nav-link" activeClassName="active" to="/remits">
+                    <i className="fa fa-envelope"></i> Remitos
+                  </NavLink>
+                </li>
+                <li className="nav-item">
                   <NavLink className="nav-link" activeClassName="active" to="/tool/add">
                     <i className="fa fa-envelope"></i> Agregar Herramienta
                   </NavLink>
