@@ -41,17 +41,18 @@ class Tools extends Component {
     var self = this;
     this.serverRequest = axios.get('http://perfilsa.dev.dd:8083/node/' + id + '?_format=json')
     .then(function(result){
-      var body = result.data.body["0"].value;
       self.setState({
-        tool_title: result.data.title["0"].value,
-        tool_body: body.replace('/sites/default/files', 'http://druact-api.goran.cloud/sites/default/files')
+        tool_title: result.data.title,
+        tool_body: result.data.body,
       });
     })
   }
 
   fetchToolTitles() {
     var self = this;
-    this.serverRequest = axios.get('http://perfilsa.dev.dd:8083/api/v1/tools')
+    this.serverRequest = axios.get('http://perfilsa.dev.dd:8083/api/v1/list?_format=json',{
+      params: { type: "tool", limit: 20}
+    })
     .then(function(result){
       self.setState({
         tools: result.data
@@ -103,4 +104,4 @@ class Tools extends Component {
   }
 }
 
-export default Tools
+export default Tools;

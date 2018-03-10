@@ -64,28 +64,18 @@ class Navbar extends Component {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink exact className="nav-link" activeClassName="active" to="/tools">
-                    <i className="fa fa-newspaper-o"></i> Herramientas
+                  <NavLink className="nav-link" activeClassName="active" to="/remit/add">
+                    <i className="fa fa-envelope"></i> Nuevo Remito
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" activeClassName="active" to="/about">
-                    <i className="fa fa-info-circle"></i> About
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" activeClassName="active" to="/contact">
-                    <i className="fa fa-envelope"></i> Contact
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="nav-link" activeClassName="active" to="/add-tool">
+                  <NavLink className="nav-link" activeClassName="active" to="/tool/add">
                     <i className="fa fa-envelope"></i> Agregar Herramienta
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" activeClassName="active" to="/add-remit">
-                    <i className="fa fa-envelope"></i> Nuevo Remito
+                  <NavLink exact className="nav-link" activeClassName="active" to="/tools">
+                    <i className="fa fa-newspaper-o"></i> Herramientas
                   </NavLink>
                 </li>
                 <li className="nav-item dropdown">
@@ -95,6 +85,11 @@ class Navbar extends Component {
                   <div className="dropdown-menu">
                     {this.renderUserLinks()}
                   </div>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" activeClassName="active" to="/contact">
+                    <i className="fa fa-envelope"></i> Contact
+                  </NavLink>
                 </li>
               </ul>
             </div>

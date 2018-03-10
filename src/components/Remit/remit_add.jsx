@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import FieldsetReference from './fieldsetReference';
+import FieldsetReference from '../fieldsetReference';
+import FieldDate from '../field_date';
 
-class AddRemit extends Component {
+class RemitAdd extends Component {
 
     constructor(props) {
         super(props);
@@ -12,7 +13,7 @@ class AddRemit extends Component {
           success: '',
           error: '',
           csrfToken: '',
-          fieldsetReference: []
+          fieldsetReference: [],
         };
     
         this.handleChange = this.handleChange.bind(this);
@@ -95,13 +96,31 @@ class AddRemit extends Component {
                 <div className="col">
                     <form className="col-md-6 offset-md-3 text-center" onSubmit={this.handleSubmit}>
                         <div className="form-group">
-                            <input name="title" value={this.state.title} onChange={this.handleChange} required type="textfield" className="form-control" placeholder="Enter title" />
+                            <label>Nro de Remito:</label>
+                            <input name="title" value={this.state.title} onChange={this.handleChange} required type="textfield" size="15" className="form-control" />
                         </div>
                         <div className="form-group">
-                            <input name="field_refer_receptor" value={this.state.field_refer_receptor} onChange={this.handleChange} required type="textfield" className="form-control" placeholder="Enter receptor" />
+                            <label>Nro de Orden:</label>
+                            <input name="orden" value={this.state.orden} onChange={this.handleChange} required type="textfield" size="15" className="form-control" />
                         </div>
                         <div className="form-group">
-                            <button onClick={ this.addFieldset }>Add Fieldset</button>
+                            <label>Fecha:</label>
+                            <FieldDate/>
+                        </div>
+                        <div className="form-group">
+                            <label>Transporte:</label>
+                            <input name="transport" value={this.state.transport} onChange={this.handleChange} required type="textfield" className="form-control" size="40" placeholder="Rodolfo" />
+                        </div>
+                        <div className="form-group">
+                            <label>Pañol Proveniente:</label>
+                            <input name="field_refer_receptor" value={this.state.field_refer_receptor} onChange={this.handleChange} required type="textfield" className="form-control" size="40" placeholder="Ingrese Pañol Receptor" />
+                        </div>
+                        <div className="form-group">
+                            <label>Detalle:</label>
+                            <textarea name="detail" value={this.state.detail} onChange={this.handleChange} required type="textarea" className="form-control" rows="5" />
+                        </div>
+                        <div className="form-group">
+                            <button onClick={ this.addFieldset }>Agregar Herramienta/Elemento</button>
                             { fieldsetReference }
                         </div>
                         
@@ -117,4 +136,4 @@ class AddRemit extends Component {
     }
 }
 
-export default AddRemit
+export default RemitAdd

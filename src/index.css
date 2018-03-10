@@ -23,3 +23,18 @@ body {
 body .btn-primary {
   background: #12516B;
   border-color: #12516B; }
+
+form input.form-control {
+  width: inherit; }
+
+form .form-group {
+  text-align: left !important; }
+
+form .form-group label {
+  float: left;
+  width: 30%; }
+
+form input.form-control > input,
+form input.form-control > div {
+  float: left;
+  width: 70%; }

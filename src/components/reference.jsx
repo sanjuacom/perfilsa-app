@@ -9,7 +9,6 @@ class Reference extends Component {
     response: ''
   }
   constructor(props) {
-    console.log(props);
     super(props);
 
     this.state = {
